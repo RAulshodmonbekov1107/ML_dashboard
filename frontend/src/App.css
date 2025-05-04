@@ -1,0 +1,1554 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Translation page animations and styling */
+.translation-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4ecfb 100%);
+  pointer-events: none; /* Allows clicking through the background */
+}
+
+/* Navbar in translation page */
+.translation-page-container nav {
+  z-index: 100;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.translation-page-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px; /* Add padding at the bottom for scrolling */
+}
+
+.translation-bg::before {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  animation: rotateGradient 30s linear infinite;
+}
+
+.translation-bg .floating-shape {
+  position: absolute;
+  opacity: 0.2;
+  border-radius: 50%;
+}
+
+.translation-bg .shape1 {
+  top: 10%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #4a8eff, #2563eb);
+  animation: float 15s ease-in-out infinite;
+}
+
+.translation-bg .shape2 {
+  top: 60%;
+  left: 80%;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #2563eb, #3b82f6);
+  animation: float 18s ease-in-out infinite reverse;
+}
+
+.translation-bg .shape3 {
+  top: 70%;
+  left: 20%;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, #3b82f6, #60a5fa);
+  animation: float 12s ease-in-out infinite;
+}
+
+.translation-bg .shape4 {
+  top: 25%;
+  right: 15%;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(45deg, #93c5fd, #dbeafe);
+  animation: float 20s ease-in-out infinite;
+}
+
+.translation-bg .lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.2;
+  overflow: hidden;
+}
+
+.translation-bg .lines .line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background: linear-gradient(to bottom, transparent, #3b82f6, transparent);
+  animation: moveLine 8s linear infinite;
+}
+
+.translation-bg .lines .line:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.translation-bg .lines .line:nth-child(2) {
+  left: 30%;
+  animation-delay: 2s;
+}
+
+.translation-bg .lines .line:nth-child(3) {
+  left: 50%;
+  animation-delay: 4s;
+}
+
+.translation-bg .lines .line:nth-child(4) {
+  left: 70%;
+  animation-delay: 6s;
+}
+
+.translation-bg .lines .line:nth-child(5) {
+  left: 90%;
+  animation-delay: 8s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-40px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes moveLine {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes rotateGradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Glass morphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+/* Glowing effect */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::after {
+  content: "";
+  background: linear-gradient(45deg, #3b82f6, #2563eb, #60a5fa, #3b82f6);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(10px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-effect:hover::after {
+  opacity: 1;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* LSTM page animations and styling */
+.lstm-page-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px; /* Add padding at the bottom for scrolling */
+}
+
+.lstm-page-container nav {
+  z-index: 100;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* GPT-2 Text Generation page animations and styling */
+.gpt2-page-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px; /* Add padding at the bottom for scrolling */
+}
+
+.gpt2-page-container nav {
+  z-index: 100;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gpt2-page {
+  background: linear-gradient(135deg, #f8f0ff 0%, #eee0ff 100%);
+}
+
+.gpt2-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+  background: linear-gradient(135deg, #f8f0ff 0%, #eee0ff 100%);
+  pointer-events: none; /* Allows clicking through the background */
+}
+
+.gpt2-bg::before {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  animation: rotateGradient 30s linear infinite;
+}
+
+.gpt2-bg .floating-shape {
+  position: absolute;
+  opacity: 0.2;
+  border-radius: 50%;
+}
+
+.gpt2-bg .shape1 {
+  top: 15%;
+  left: 15%;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(45deg, #9333ea, #7e22ce);
+  animation: float 17s ease-in-out infinite;
+}
+
+.gpt2-bg .shape2 {
+  top: 65%;
+  left: 75%;
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(45deg, #7e22ce, #9333ea);
+  animation: float 20s ease-in-out infinite reverse;
+}
+
+.gpt2-bg .shape3 {
+  top: 75%;
+  left: 25%;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, #a855f7, #c084fc);
+  animation: float 14s ease-in-out infinite;
+}
+
+.gpt2-bg .shape4 {
+  top: 20%;
+  right: 20%;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #c084fc, #d8b4fe);
+  animation: float 22s ease-in-out infinite;
+}
+
+.gpt2-bg .text-particle {
+  position: absolute;
+  color: rgba(126, 34, 206, 0.1);
+  font-family: monospace;
+  font-weight: bold;
+  pointer-events: none;
+  animation: float-text 15s linear infinite;
+}
+
+@keyframes float-text {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100px) translateX(30px);
+    opacity: 0;
+  }
+}
+
+/* Pulse animation for GPT-2 buttons */
+@keyframes gpt2-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(147, 51, 234, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0);
+  }
+}
+
+.gpt2-button {
+  animation: gpt2-pulse 2s infinite;
+  background: linear-gradient(135deg, #9333ea 0%, #7e22ce 100%);
+  transition: all 0.3s ease;
+}
+
+.gpt2-button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #7e22ce 0%, #6b21a8 100%);
+}
+
+.gpt2-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gpt2-card:hover {
+  box-shadow: 0 8px 24px rgba(147, 51, 234, 0.12);
+  transform: translateY(-2px);
+}
+
+.gpt2-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #9333ea, #c084fc);
+}
+
+/* Typing animation effect */
+.typing-effect {
+  border-right: 2px solid #9333ea;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #9333ea }
+}
+
+.lstm-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e0ecf8 100%);
+  pointer-events: none; /* Allows clicking through the background */
+}
+
+.lstm-bg::before {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  animation: rotateGradient 30s linear infinite;
+}
+
+.lstm-bg .floating-shape {
+  position: absolute;
+  opacity: 0.2;
+  border-radius: 50%;
+}
+
+.lstm-bg .shape1 {
+  top: 15%;
+  left: 15%;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(45deg, #805ad5, #6b46c1);
+  animation: float 17s ease-in-out infinite;
+}
+
+.lstm-bg .shape2 {
+  top: 65%;
+  left: 75%;
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(45deg, #6b46c1, #805ad5);
+  animation: float 20s ease-in-out infinite reverse;
+}
+
+.lstm-bg .shape3 {
+  top: 75%;
+  left: 25%;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, #8B5CF6, #A78BFA);
+  animation: float 14s ease-in-out infinite;
+}
+
+.lstm-bg .shape4 {
+  top: 20%;
+  right: 20%;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #A78BFA, #C4B5FD);
+  animation: float 22s ease-in-out infinite;
+}
+
+.lstm-bg .lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.2;
+  overflow: hidden;
+}
+
+.lstm-bg .lines .line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background: linear-gradient(to bottom, transparent, #6b46c1, transparent);
+  animation: moveLine 8s linear infinite;
+}
+
+.lstm-bg .lines .line:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.lstm-bg .lines .line:nth-child(2) {
+  left: 30%;
+  animation-delay: 2s;
+}
+
+.lstm-bg .lines .line:nth-child(3) {
+  left: 50%;
+  animation-delay: 4s;
+}
+
+.lstm-bg .lines .line:nth-child(4) {
+  left: 70%;
+  animation-delay: 6s;
+}
+
+.lstm-bg .lines .line:nth-child(5) {
+  left: 90%;
+  animation-delay: 8s;
+}
+
+/* Purple glow effect */
+.purple-glow-effect {
+  position: relative;
+}
+
+.purple-glow-effect::after {
+  content: "";
+  background: linear-gradient(45deg, #8B5CF6, #6b46c1, #A78BFA, #8B5CF6);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(10px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.purple-glow-effect:hover::after {
+  opacity: 1;
+}
+
+/* RNN page animations and styling */
+.rnn-page-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px; /* Add padding at the bottom for scrolling */
+}
+
+.rnn-page-container nav {
+  z-index: 100;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.rnn-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e0f2f1 100%);
+  pointer-events: none; /* Allows clicking through the background */
+}
+
+.rnn-bg::before {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  animation: rotateGradient 30s linear infinite;
+}
+
+.rnn-bg .floating-shape {
+  position: absolute;
+  opacity: 0.2;
+  border-radius: 50%;
+}
+
+.rnn-bg .shape1 {
+  top: 10%;
+  left: 10%;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(45deg, #0d9488, #14b8a6);
+  animation: float 16s ease-in-out infinite;
+}
+
+.rnn-bg .shape2 {
+  top: 60%;
+  left: 80%;
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(45deg, #14b8a6, #2dd4bf);
+  animation: float 19s ease-in-out infinite reverse;
+}
+
+.rnn-bg .shape3 {
+  top: 75%;
+  left: 20%;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, #2dd4bf, #5eead4);
+  animation: float 13s ease-in-out infinite;
+}
+
+.rnn-bg .shape4 {
+  top: 20%;
+  right: 15%;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #5eead4, #99f6e4);
+  animation: float 21s ease-in-out infinite;
+}
+
+.rnn-bg .lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.2;
+  overflow: hidden;
+}
+
+.rnn-bg .lines .line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background: linear-gradient(to bottom, transparent, #0d9488, transparent);
+  animation: moveLine 8s linear infinite;
+}
+
+.rnn-bg .lines .line:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.rnn-bg .lines .line:nth-child(2) {
+  left: 30%;
+  animation-delay: 2s;
+}
+
+.rnn-bg .lines .line:nth-child(3) {
+  left: 50%;
+  animation-delay: 4s;
+}
+
+.rnn-bg .lines .line:nth-child(4) {
+  left: 70%;
+  animation-delay: 6s;
+}
+
+.rnn-bg .lines .line:nth-child(5) {
+  left: 90%;
+  animation-delay: 8s;
+}
+
+/* Teal glow effect */
+.teal-glow-effect {
+  position: relative;
+}
+
+.teal-glow-effect::after {
+  content: "";
+  background: linear-gradient(45deg, #0d9488, #14b8a6, #2dd4bf, #0d9488);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(10px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.teal-glow-effect:hover::after {
+  opacity: 1;
+}
+
+.speech-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+.speech-wave .wave-bar {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin: 0 2px;
+  border-radius: 2px;
+  background-color: #14b8a6;
+  animation: waveAnimation 1.2s ease-in-out infinite;
+}
+
+.speech-wave .wave-bar:nth-child(1) { animation-delay: 0s; }
+.speech-wave .wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.speech-wave .wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.speech-wave .wave-bar:nth-child(4) { animation-delay: 0.3s; }
+.speech-wave .wave-bar:nth-child(5) { animation-delay: 0.4s; }
+.speech-wave .wave-bar:nth-child(6) { animation-delay: 0.5s; }
+.speech-wave .wave-bar:nth-child(7) { animation-delay: 0.6s; }
+.speech-wave .wave-bar:nth-child(8) { animation-delay: 0.7s; }
+
+@keyframes waveAnimation {
+  0%, 100% { height: 5px; }
+  50% { height: 30px; }
+}
+
+.speech-wave.animate .wave-bar {
+  animation-play-state: running;
+}
+
+.speech-wave.paused .wave-bar {
+  animation-play-state: paused;
+}
+
+/* Neural Network page animations and styling */
+.nn-page-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px; /* Add padding at the bottom for scrolling */
+}
+
+.nn-page-container nav {
+  z-index: 100;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nn-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+  background: linear-gradient(135deg, #f7f7ff 0%, #e1e9ff 100%);
+  pointer-events: none; /* Allows clicking through the background */
+}
+
+.nn-bg::before {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  animation: rotateGradient 30s linear infinite;
+}
+
+.nn-bg .floating-shape {
+  position: absolute;
+  opacity: 0.15;
+  border-radius: 50%;
+}
+
+.nn-bg .shape1 {
+  top: 15%;
+  left: 15%;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #3b82f6, #4f46e5);
+  animation: float 18s ease-in-out infinite;
+}
+
+.nn-bg .shape2 {
+  top: 65%;
+  left: 75%;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #4f46e5, #6366f1);
+  animation: float 20s ease-in-out infinite reverse;
+}
+
+.nn-bg .shape3 {
+  top: 70%;
+  left: 20%;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, #6366f1, #818cf8);
+  animation: float 15s ease-in-out infinite;
+}
+
+.nn-bg .shape4 {
+  top: 20%;
+  right: 18%;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(45deg, #818cf8, #a5b4fc);
+  animation: float 22s ease-in-out infinite;
+}
+
+.nn-bg .lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.15;
+  overflow: hidden;
+}
+
+.nn-bg .lines .line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background: linear-gradient(to bottom, transparent, #4f46e5, transparent);
+  animation: moveLine 8s linear infinite;
+}
+
+.nn-bg .lines .line:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.nn-bg .lines .line:nth-child(2) {
+  left: 30%;
+  animation-delay: 2s;
+}
+
+.nn-bg .lines .line:nth-child(3) {
+  left: 50%;
+  animation-delay: 4s;
+}
+
+.nn-bg .lines .line:nth-child(4) {
+  left: 70%;
+  animation-delay: 6s;
+}
+
+.nn-bg .lines .line:nth-child(5) {
+  left: 90%;
+  animation-delay: 8s;
+}
+
+/* Indigo glow effect */
+.indigo-glow-effect {
+  position: relative;
+}
+
+.indigo-glow-effect::after {
+  content: "";
+  background: linear-gradient(45deg, #3b82f6, #4f46e5, #6366f1, #3b82f6);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(10px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.indigo-glow-effect:hover::after {
+  opacity: 1;
+}
+
+/* Neural network animation */
+.neural-network {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.neuron {
+  width: 12px;
+  height: 12px;
+  background-color: #4f46e5;
+  border-radius: 50%;
+  margin: 0 15px;
+  position: relative;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.neuron::before,
+.neuron::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #4f46e5, transparent);
+  left: -30px;
+  top: 50%;
+}
+
+.neuron::after {
+  left: auto;
+  right: -30px;
+}
+
+.neuron:nth-child(1) { animation-delay: 0s; }
+.neuron:nth-child(2) { animation-delay: 0.5s; }
+.neuron:nth-child(3) { animation-delay: 1s; }
+.neuron:nth-child(4) { animation-delay: 1.5s; }
+.neuron:nth-child(5) { animation-delay: 2s; }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 8px rgba(79, 70, 229, 0.6); }
+}
+
+/* Futuristic input style */
+.nn-input {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 8px;
+  padding: 10px 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nn-input:focus {
+  border-color: rgba(99, 102, 241, 0.8);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.nn-input:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+.nn-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08);
+  transition: all 0.3s ease;
+}
+
+.nn-card:hover {
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.12);
+  transform: translateY(-2px);
+}
+
+/* AdaBoost face recognition page animations and styling */
+.adaboost-page-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px; /* Add padding at the bottom for scrolling */
+}
+
+.adaboost-page-container nav {
+  z-index: 100;
+  position: relative;
+  background: rgba(5, 25, 55, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.adaboost-page button {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+}
+
+.adaboost-page button:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+}
+
+.adaboost-page-container .glass-card {
+  background: rgba(3, 105, 161, 0.15);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(2, 132, 199, 0.15);
+}
+
+/* Facial recognition scan animation */
+.face-scan-animation {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #0ea5e9;
+  box-shadow: 0 0 8px #0ea5e9;
+  animation: scanAnimation 2s linear infinite;
+}
+
+@keyframes scanAnimation {
+  0% {
+    top: 0;
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0.7;
+  }
+}
+
+.face-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #0ea5e9;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.face-grid::before, .face-grid::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(14, 165, 233, 0.3);
+}
+
+.face-grid::before {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  left: 50%;
+}
+
+.face-grid::after {
+  left: 0;
+  right: 0;
+  height: 1px;
+  top: 50%;
+}
+
+.face-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #0ea5e9;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #0ea5e9;
+  animation: dotPulse 3s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+/* Blue glow effect for the AdaBoost page */
+.blue-glow-effect {
+  position: relative;
+}
+
+.blue-glow-effect::after {
+  content: "";
+  background: linear-gradient(45deg, #0ea5e9, #0284c7, #38bdf8, #0ea5e9);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(10px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.blue-glow-effect:hover::after {
+  opacity: 1;
+}
+
+/* XGBoost page animations and styling */
+.xgboost-page-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 50px; /* Add padding at the bottom for scrolling */
+}
+
+.xgboost-page-container nav {
+  z-index: 100;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.xgboost-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+  background: linear-gradient(135deg, #f0f7f0 0%, #e0f0e0 100%);
+  pointer-events: none; /* Allows clicking through the background */
+}
+
+.xgboost-bg::before {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  animation: rotateGradient 30s linear infinite;
+}
+
+.xgboost-bg .floating-shape {
+  position: absolute;
+  opacity: 0.2;
+  border-radius: 50%;
+}
+
+.xgboost-bg .shape1 {
+  top: 10%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #4ade80, #22c55e);
+  animation: float 15s ease-in-out infinite;
+}
+
+.xgboost-bg .shape2 {
+  top: 60%;
+  left: 80%;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #16a34a, #22c55e);
+  animation: float 18s ease-in-out infinite reverse;
+}
+
+.xgboost-bg .shape3 {
+  top: 70%;
+  left: 20%;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, #22c55e, #4ade80);
+  animation: float 12s ease-in-out infinite;
+}
+
+.xgboost-bg .shape4 {
+  top: 25%;
+  right: 15%;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(45deg, #86efac, #dcfce7);
+  animation: float 20s ease-in-out infinite;
+}
+
+.xgboost-bg .lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.2;
+  overflow: hidden;
+}
+
+.xgboost-bg .lines .line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background: linear-gradient(to bottom, transparent, #16a34a, transparent);
+  animation: moveLine 8s linear infinite;
+}
+
+.xgboost-bg .lines .line:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.xgboost-bg .lines .line:nth-child(2) {
+  left: 30%;
+  animation-delay: 2s;
+}
+
+.xgboost-bg .lines .line:nth-child(3) {
+  left: 50%;
+  animation-delay: 4s;
+}
+
+.xgboost-bg .lines .line:nth-child(4) {
+  left: 70%;
+  animation-delay: 6s;
+}
+
+.xgboost-bg .lines .line:nth-child(5) {
+  left: 90%;
+  animation-delay: 8s;
+}
+
+/* Green glow effect */
+.green-glow-effect {
+  position: relative;
+}
+
+.green-glow-effect::after {
+  content: "";
+  background: linear-gradient(45deg, #22c55e, #16a34a, #4ade80, #22c55e);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(10px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.green-glow-effect:hover::after {
+  opacity: 1;
+}
+
+/* Decision tree visualization */
+.decision-tree-viz {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  position: relative;
+}
+
+.tree-node {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #16a34a;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  position: relative;
+  margin: 0 1rem;
+  box-shadow: 0 4px 6px rgba(22, 163, 74, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tree-node:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(22, 163, 74, 0.2);
+  border-color: #15803d;
+}
+
+.tree-node.root {
+  background: linear-gradient(45deg, #dcfce7, #bbf7d0);
+  margin: 0 auto 2rem;
+  display: block;
+  width: 100px;
+  animation: pulse 2s infinite;
+}
+
+.tree-node.leaf {
+  background: linear-gradient(45deg, #f0fdf4, #dcfce7);
+  border-color: #4ade80;
+}
+
+.tree-level-2 {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.tree-level-3 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.node-connections {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 2rem;
+}
+
+.connection {
+  position: absolute;
+  width: 2px;
+  background-color: #16a34a;
+  top: 0;
+  height: 2rem;
+}
+
+.connection.left {
+  left: 25%;
+  transform: rotate(-30deg);
+  transform-origin: top;
+}
+
+.connection.right {
+  right: 25%;
+  transform: rotate(30deg);
+  transform-origin: top;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(22, 163, 74, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+  }
+}
+
+/* Security visualization for phishing detection page */
+.security-viz {
+  width: 100%;
+  max-width: 700px;
+  padding: 1rem;
+  position: relative;
+}
+
+.security-icons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.security-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.security-icon p {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #166534;
+}
+
+.shield-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 2px solid rgba(22, 163, 74, 0.2);
+  box-shadow: 0 4px 8px rgba(22, 163, 74, 0.1);
+  transition: all 0.3s ease;
+}
+
+.shield-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(22, 163, 74, 0.2);
+  border-color: rgba(22, 163, 74, 0.4);
+}
+
+.shield-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.shield-inner span {
+  animation: pulse 2s infinite;
+}
+
+/* Custom styling for the PhishingDetectionForm within the AnimatedXGBoostPage */
+.xgboost-page-container .phishing-form-container {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.xgboost-page-container .phishing-form-container h4 {
+  color: #166534;
+  font-weight: 600;
+}
+
+.xgboost-page-container .phishing-form-container input[type="text"],
+.xgboost-page-container .phishing-form-container input[type="number"] {
+  border: 1px solid rgba(22, 163, 74, 0.3);
+  border-radius: 8px;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.xgboost-page-container .phishing-form-container input[type="text"]:focus,
+.xgboost-page-container .phishing-form-container input[type="number"]:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+
+.xgboost-page-container .phishing-form-container .submit-button {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  transition: all 0.3s ease;
+  transform: scale(1);
+  font-weight: 500;
+}
+
+.xgboost-page-container .phishing-form-container .submit-button:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  transform: scale(1.02);
+}
+
+.xgboost-page-container .phishing-form-container .result-container {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.xgboost-page-container .phishing-form-container .result-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.xgboost-page-container .phishing-form-container .result-container.danger {
+  border-left: 4px solid #ef4444;
+}
+
+.xgboost-page-container .phishing-form-container .result-container.safe {
+  border-left: 4px solid #22c55e;
+}
+
+.xgboost-page-container .phishing-form-container .result-badge {
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 5px 0;
+}
+
+.xgboost-page-container .toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.xgboost-page-container .toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.xgboost-page-container .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.xgboost-page-container .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.xgboost-page-container input:checked + .slider {
+  background-color: #22c55e;
+}
+
+.xgboost-page-container input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Animation for the URL checking process */
+@keyframes scanAnimation {
+  0% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0.6;
+  }
+}

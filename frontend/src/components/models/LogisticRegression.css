@@ -1,0 +1,487 @@
+/* Logistic Regression Page Styles */
+.logistic-regression-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9f0f6 100%);
+}
+
+/* Page Header */
+.page-header {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Credit Card Animation */
+.credit-card-animation {
+  position: relative;
+  margin: 2rem auto;
+  width: 300px;
+  height: 180px;
+  perspective: 1000px;
+}
+
+.credit-card {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  transition: transform 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.credit-card:before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: rotate(30deg);
+}
+
+.credit-card-chip {
+  width: 50px;
+  height: 40px;
+  background: linear-gradient(135deg, #daa520 0%, #ffd700 50%, #daa520 100%);
+  border-radius: 6px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.credit-card-chip:before,
+.credit-card-chip:after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.3);
+  left: 5px;
+}
+
+.credit-card-chip:before {
+  top: 13px;
+}
+
+.credit-card-chip:after {
+  top: 27px;
+}
+
+.credit-card-logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+}
+
+.cc-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.cc-circle-left {
+  background-color: rgba(255, 0, 0, 0.8);
+  margin-right: -15px;
+}
+
+.cc-circle-right {
+  background-color: rgba(255, 165, 0, 0.8);
+}
+
+.credit-card-number {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  font-family: 'Courier New', monospace;
+}
+
+.credit-card-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Form styles */
+.fraud-meter {
+  width: 100%;
+  height: 6px;
+  background-color: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.fraud-meter-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Risk Meter Component */
+.risk-meter-container {
+  margin: 1.5rem auto;
+  text-align: center;
+  position: relative;
+  width: 200px;
+  height: 150px;
+}
+
+.risk-meter {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  background: radial-gradient(circle at bottom, #f3f4f6 70%, #e5e7eb 100%);
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  overflow: hidden;
+  border-bottom: 2px solid #d1d5db;
+}
+
+.risk-meter:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: conic-gradient(
+    from 180deg at 50% 100%,
+    #4ade80 0deg 60deg,
+    #facc15 60deg 120deg,
+    #ef4444 120deg 180deg
+  );
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+}
+
+.risk-meter-scale {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.risk-meter-label-low {
+  transform: translateX(-50%);
+  color: #4ade80;
+}
+
+.risk-meter-label-med {
+  transform: translateX(-50%);
+  color: #facc15;
+}
+
+.risk-meter-label-high {
+  transform: translateX(50%);
+  color: #ef4444;
+}
+
+.risk-meter-needle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  height: 90px;
+  background-color: #1f2937;
+  transform-origin: bottom center;
+  z-index: 10;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.risk-meter-needle:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  background-color: #1f2937;
+  border-radius: 50%;
+  z-index: 11;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.fraud-probability {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f2937;
+  display: flex;
+  flex-direction: column;
+}
+
+.fraud-label {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: normal;
+}
+
+/* Feature Importance */
+.feature-importance {
+  margin-bottom: 2rem;
+}
+
+.feature-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature-bar-container {
+  display: grid;
+  grid-template-columns: 150px 1fr 40px;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature-name {
+  font-size: 14px;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.feature-bar-background {
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.feature-bar {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.feature-value {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Security Violations */
+.security-violations {
+  margin-top: 1.5rem;
+}
+
+.no-violations {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 1rem;
+  background-color: #f0fdf4;
+  border-radius: 8px;
+  color: #166534;
+}
+
+.violations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.violation-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.75rem;
+  background-color: #fee2e2;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.violation-icon {
+  font-size: 1.25rem;
+}
+
+/* Prediction Tags */
+.prediction-tag {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.prediction-fraud {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.prediction-legitimate {
+  background-color: #ecfdf5;
+  color: #047857;
+}
+
+/* Loading Animation */
+.loading-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-pulse {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(99, 102, 241, 0.1);
+  position: relative;
+}
+
+.loading-pulse::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(99, 102, 241, 0.4);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Placeholder Icon Animation */
+.placeholder-icon {
+  opacity: 0.7;
+}
+
+/* Decision Tree */
+.fraud-decision-tree {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+}
+
+.decision-path {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.decision-node {
+  position: relative;
+}
+
+.node-content {
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.final-node {
+  background-color: #ede9fe;
+  border: 1px solid #ddd6fe;
+}
+
+.node-question {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.node-answer {
+  font-weight: 600;
+}
+
+.node-connector {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  height: 14px;
+  width: 2px;
+  background-color: #d1d5db;
+  z-index: 0;
+}
+
+.decision-node:last-child .node-connector {
+  display: none;
+}
+
+/* Info Cards */
+.info-card {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.info-card-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .feature-bar-container {
+    grid-template-columns: 100px 1fr 40px;
+  }
+  
+  .credit-card-animation {
+    width: 250px;
+    height: 150px;
+  }
+  
+  .credit-card-number {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animation for the form fields */
+input:focus, select:focus {
+  animation: pulse-border 1.5s infinite;
+}
+
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(99, 102, 241, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+  }
+} 

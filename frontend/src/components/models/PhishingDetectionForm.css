@@ -1,0 +1,290 @@
+.phishing-form-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-control {
+  margin-bottom: 16px;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-control input[type="text"],
+.form-control input[type="number"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-control input:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 1px #3182ce;
+}
+
+.switch-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #3182ce;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #3182ce;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.advanced-features {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.advanced-features h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.advanced-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.helper-text {
+  font-size: 12px;
+  color: #718096;
+  margin-top: 4px;
+}
+
+.submit-button {
+  padding: 10px 16px;
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 8px;
+}
+
+.submit-button:hover {
+  background-color: #2b6cb0;
+}
+
+.submit-button:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.result-container {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.result-container.danger {
+  background-color: #fff5f5;
+  border-color: #fed7d7;
+}
+
+.result-container.safe {
+  background-color: #f0fff4;
+  border-color: #c6f6d5;
+}
+
+.result-container h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.result-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.result-badge {
+  padding: 8px 16px;
+  margin-bottom: 12px;
+  display: inline-block;
+  border-radius: 4px;
+  font-weight: 500;
+  color: white;
+}
+
+.danger .result-badge {
+  background-color: #fecaca;
+  color: #b91c1c;
+}
+
+.safe .result-badge {
+  background-color: #d1fae5;
+  color: #047857;
+}
+
+.probability {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Demo URLs section */
+.demo-urls {
+  margin: 1rem 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f8fafc;
+}
+
+.demo-urls p {
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.demo-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.demo-button {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.demo-button.safe {
+  border-left: 3px solid #10b981;
+}
+
+.demo-button.phishing {
+  border-left: 3px solid #ef4444;
+}
+
+.demo-button:hover {
+  background-color: #e2e8f0;
+}
+
+/* Analysis details */
+.analysis-details {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.risk-factors,
+.safe-indicators {
+  flex: 1;
+  min-width: 250px;
+}
+
+.risk-factors h4,
+.safe-indicators h4 {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.risk-factors h4 {
+  color: #dc2626;
+}
+
+.safe-indicators h4 {
+  color: #10b981;
+}
+
+.risk-factors ul,
+.safe-indicators ul {
+  padding-left: 20px;
+}
+
+.risk-item,
+.safety-item {
+  margin-bottom: 4px;
+  padding: 4px 0;
+}
+
+.risk-item {
+  color: #7f1d1d;
+}
+
+.safety-item {
+  color: #166534;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .analysis-details {
+    flex-direction: column;
+  }
+} 

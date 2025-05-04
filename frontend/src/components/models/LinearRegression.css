@@ -1,0 +1,708 @@
+/* Linear Regression Page Styles */
+.linear-regression-page {
+  min-height: 100vh;
+  background: linear-gradient(165deg, #f8fafc 0%, #e0f2fe 100%);
+}
+
+/* Professional House Icons Animation */
+.house-icons-animation {
+  position: relative;
+  height: 160px;
+  width: 100%;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.house-icon {
+  position: absolute;
+  font-size: 24px;
+  animation: float-house 18s linear infinite;
+  opacity: 0.5;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+}
+
+.house-icon:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.house-icon:nth-child(2) {
+  top: 60%;
+  left: 20%;
+  animation-delay: 3s;
+}
+
+.house-icon:nth-child(3) {
+  top: 30%;
+  left: 50%;
+  animation-delay: 6s;
+}
+
+.house-icon:nth-child(4) {
+  top: 70%;
+  left: 60%;
+  animation-delay: 9s;
+}
+
+.house-icon:nth-child(5) {
+  top: 40%;
+  left: 80%;
+  animation-delay: 12s;
+}
+
+@keyframes float-house {
+  0% {
+    transform: translateY(160px) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-160px) rotate(3deg) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.tab-button {
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  color: #64748b;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+
+.tab-button:hover {
+  color: #0369a1;
+  background-color: rgba(3, 105, 161, 0.05);
+}
+
+.tab-button.active {
+  color: #0369a1;
+  font-weight: 600;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #0369a1;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+/* Form styles */
+.form-container {
+  padding: 1.5rem;
+}
+
+.field-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.field-group-single {
+  margin-bottom: 1.5rem;
+}
+
+.field {
+  position: relative;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.field-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+  font-size: 1rem;
+  background-color: #f8fafc;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+  background-color: #fff;
+}
+
+.field-hint {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* Range sliders */
+.range-slider {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 4px;
+  background: #e2e8f0;
+  outline: none;
+  margin-top: 8px;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0284c7;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  background: #0369a1;
+  transform: scale(1.1);
+}
+
+.range-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0284c7;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.range-slider::-moz-range-thumb:hover {
+  background: #0369a1;
+  transform: scale(1.1);
+}
+
+.slider-value {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background-color: #0284c7;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.submit-button:hover {
+  background-color: #0369a1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.loading-spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 3px solid white;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.result-container {
+  margin-top: 1.5rem;
+  padding: 1.75rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+}
+
+.prediction-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0284c7;
+  text-align: center;
+  margin: 1rem 0;
+  position: relative;
+  display: inline-block;
+}
+
+.prediction-value::before {
+  content: '$';
+  font-size: 1.25rem;
+  position: absolute;
+  top: 0.5rem;
+  left: -1.25rem;
+  color: #64748b;
+}
+
+/* Housing Value Card */
+.house-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.house-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.house-card-header {
+  padding: 1.25rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  background-color: #f8fafc;
+}
+
+.house-card-image {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background-color: #0284c7;
+  color: white;
+  border-radius: 0.375rem;
+  margin-right: 1rem;
+  box-shadow: 0 2px 4px rgba(2, 132, 199, 0.2);
+}
+
+.house-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.house-card-subtitle {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+.house-card-body {
+  padding: 1.25rem;
+}
+
+.house-card-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.metric-item {
+  padding: 0.75rem;
+  background-color: #f8fafc;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metric-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Chart styles */
+.chart-container {
+  padding: 1.75rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  margin-bottom: 1.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.scatter-plot {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  margin: 1.25rem 0;
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+
+.plot-point {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #0ea5e9;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+
+.plot-point.highlighted {
+  background-color: #f43f5e;
+  height: 14px;
+  width: 14px;
+  box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.2);
+  z-index: 10;
+}
+
+.plot-tooltip {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.85);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  pointer-events: none;
+  transform: translate(-50%, -130%);
+  z-index: 20;
+  white-space: nowrap;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-width: 120px;
+  text-align: center;
+}
+
+.regression-line {
+  position: absolute;
+  height: 3px;
+  background-color: #10b981;
+  transform-origin: 0 0;
+  transition: all 0.5s ease;
+  z-index: 4;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.axis-x, .axis-y {
+  position: absolute;
+  background-color: #94a3b8;
+  height: 2px; 
+  width: 2px;
+}
+
+.axis-tick {
+  position: absolute;
+  font-size: 0.65rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.x-tick {
+  transform: translateX(-50%);
+}
+
+.y-tick {
+  transform: translateY(50%);
+  text-align: right;
+}
+
+.tick-label {
+  font-size: 0.65rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.axis-label {
+  position: absolute;
+  font-size: 0.875rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+/* Formula visualization */
+.formula-visualization {
+  margin-top: 2rem;
+  padding: 1.75rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+}
+
+.formula-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.formula-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  margin: 1.25rem 0;
+  background-color: #f8fafc;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  font-size: 1.25rem;
+  font-family: 'Courier New', monospace;
+  border: 1px solid #e2e8f0;
+}
+
+.formula-part {
+  margin: 0 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.formula-part.highlight {
+  background-color: #e0f2fe;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.3);
+}
+
+.formula-part.intercept {
+  color: #e11d48;
+}
+
+.formula-part.slope {
+  color: #059669;
+}
+
+.formula-part.variable {
+  color: #7c3aed;
+}
+
+.formula-part.result {
+  color: #0284c7;
+  font-weight: 700;
+}
+
+/* Explanation section */
+.explanation-content {
+  padding: 1.75rem;
+}
+
+.explanation-step {
+  margin-bottom: 2rem;
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #0284c7;
+  color: white;
+  font-weight: 600;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(2, 132, 199, 0.2);
+}
+
+.step-title {
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.step-content {
+  color: #475569;
+  line-height: 1.6;
+}
+
+.formula-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  color: #0f172a;
+}
+
+/* Real Estate Features */
+.feature-slider {
+  overflow: hidden;
+  width: 100%;
+  height: 90px;
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.feature-track {
+  display: flex;
+  animation: slide 30s linear infinite;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  height: 80px;
+  margin: 0 1rem;
+  padding: 0.75rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+  color: #0284c7;
+  margin-bottom: 0.375rem;
+}
+
+.feature-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #334155;
+  text-align: center;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .field-group {
+    grid-template-columns: 1fr;
+  }
+  
+  .formula-container {
+    font-size: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .house-card-metrics {
+    grid-template-columns: 1fr;
+  }
+  
+  .scatter-plot {
+    height: 300px;
+  }
+}
+
+/* Chart legend */
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 0 0.75rem 0.5rem 0;
+}
+
+.legend-marker {
+  width: 12px;
+  height: 12px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
+
+.legend-marker.point {
+  background-color: #0ea5e9;
+}
+
+.legend-marker.highlighted {
+  background-color: #f43f5e;
+}
+
+.legend-marker.line {
+  width: 20px;
+  height: 2px;
+  background-color: #10b981;
+}
+
+.legend-text {
+  font-size: 0.75rem;
+  color: #475569;
+  font-weight: 500;
+} 
